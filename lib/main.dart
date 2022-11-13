@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation/animation_screen/animated_cross_fade_screen.dart';
 import 'package:flutter_animation/animation_screen/fade_animation_screen.dart';
 import 'animation_screen/animated_builder_screen.dart';
 import 'animation_screen/animated_container.dart';
@@ -138,6 +139,14 @@ class MyHomePage extends StatelessWidget {
                   title: Text("Fade Animation"),
                   onTap: () {
                     Navigator.of(context).push(createRoute(FadeAnimationScreen()));
+                  },
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  title: Text("Animated Cross Fade"),
+                  onTap: () {
+                    Navigator.of(context).push(createRoute(AnimatedCrossFadeScreen()));
                   },
                 ),
               ),
