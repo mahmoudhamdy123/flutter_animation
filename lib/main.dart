@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation/animation_screen/fade_animation_screen.dart';
 import 'animation_screen/animated_builder_screen.dart';
 import 'animation_screen/animated_container.dart';
 import 'animation_screen/animations_from_scratch.dart';
@@ -6,6 +7,7 @@ import 'animation_screen/flutter_hero_animation.dart';
 import 'animation_screen/pageRouteBuilder_screen.dart';
 import 'animation_screen/slide_transition.dart';
 import 'animation_screen/transition_opacity_screen.dart';
+import 'shared/resources/navigation.dart';
 
 
 void main() {
@@ -48,7 +50,7 @@ class MyHomePage extends StatelessWidget {
                 child: ListTile(
                   title: Text("Set up a PageRouteBuilder"),
                   onTap: () {
-                    Navigator.of(context).push(_createRoute());
+                    Navigator.of(context).push(createRoute( PageRouteBuilderScreen()));
                   },
                 ),
               ),
@@ -57,8 +59,11 @@ class MyHomePage extends StatelessWidget {
                   child: Hero(
                     tag: 'imageHero',
                     child: FadeInImage(
+                      width: double.infinity,
+                      height: 200,
+                      fit: BoxFit.cover,
                       placeholder: AssetImage('assets/images/image2.png'),
-                      image: NetworkImage("https://assets.website-files.com/5e3c45dea042cf97f3689681/5e417cd336a72b06a86c73e7_Flutter-Tutorial-Header%402x.jpg"),
+                      image: NetworkImage("https://docs.flutter.dev/assets/images/flutter-logo-sharing.png"),
                     ),
                   ),
                   onTap: () {
@@ -128,6 +133,14 @@ class MyHomePage extends StatelessWidget {
                   },
                 ),
               ),
+               Card(
+                child: ListTile(
+                  title: Text("Fade animation"),
+                  onTap: () {
+                    Navigator.of(context).push(createRoute(FadeAnimationScreen()));
+                  },
+                ),
+              ),
               SizedBox(height: 200,)
             ]),
           )
@@ -137,23 +150,4 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-Route _createRoute() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) =>
-        PageRouteBuilderScreen(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      var begin = Offset(0.0, 1.0);
-      var end = Offset.zero;
-      var curve = Curves.linear;
-      var tween = Tween(begin: begin, end: end);
-      var curvedAnimation = CurvedAnimation(
-        parent: animation,
-        curve: curve,
-      );
-      return SlideTransition(
-        position: tween.animate(curvedAnimation),
-        child: child,
-      );
-    },
-  );
-}
+
