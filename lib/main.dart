@@ -135,7 +135,7 @@ class MyHomePage extends StatelessWidget {
               ),
                Card(
                 child: ListTile(
-                  title: Text("Fade animation"),
+                  title: Text("Fade Animation"),
                   onTap: () {
                     Navigator.of(context).push(createRoute(FadeAnimationScreen()));
                   },
