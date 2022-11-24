@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/animation_screen/animated_cross_fade_screen.dart';
 import 'package:flutter_animation/animation_screen/animated_dynamic_list_screen.dart';
+import 'package:flutter_animation/animation_screen/animated_list_screen.dart';
 import 'package:flutter_animation/animation_screen/fade_animation_screen.dart';
 import 'animation_screen/animated_builder_screen.dart';
 import 'animation_screen/animated_container.dart';
@@ -177,6 +178,15 @@ class MyHomePage extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context)
                         .push(createRoute(const AnimatedDynamicListScreen()));
+                  },
+                ),
+              ),
+              Card(
+                child: ListTile(
+                  title: const Text("Animated List"),
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(createRoute(const AnimatedListScreen()));
                   },
                 ),
               ),
