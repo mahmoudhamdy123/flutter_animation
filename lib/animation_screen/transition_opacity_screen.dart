@@ -10,8 +10,8 @@ class TransitionOpacityScreen extends StatefulWidget {
 }
 
 class _TransitionOpacityScreenState extends State<TransitionOpacityScreen>  with SingleTickerProviderStateMixin{
-  Animation<double> _opacityAnimation;
-  AnimationController _controller;
+  Animation<double>? _opacityAnimation;
+  AnimationController? _controller;
 
 
   @override
@@ -21,14 +21,14 @@ class _TransitionOpacityScreenState extends State<TransitionOpacityScreen>  with
     _controller =
         AnimationController(vsync: this, duration: Duration(milliseconds: 1000))..repeat(reverse: true);
     _opacityAnimation =  CurvedAnimation(
-      parent: _controller,
+      parent: _controller!,
       curve: Curves.easeIn,
     );
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller!.dispose();
     super.dispose();
   }
 
@@ -38,7 +38,7 @@ class _TransitionOpacityScreenState extends State<TransitionOpacityScreen>  with
       appBar: AppBar(),
       body: Center(
         child: FadeTransition(
-          opacity: _opacityAnimation,
+          opacity: _opacityAnimation!,
           child: Container(
             width: 100,
             height: 100,

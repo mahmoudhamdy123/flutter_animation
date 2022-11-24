@@ -10,8 +10,8 @@ class _AnimatedBuilderScreenState
     extends State<AnimatedBuilderScreen>
     with SingleTickerProviderStateMixin {
   bool select = true;
-  AnimationController _controller;
-  Animation<Size> _heightAnimation;
+  late AnimationController _controller;
+  late Animation<Size> _heightAnimation;
 
   @override
   void initState() {

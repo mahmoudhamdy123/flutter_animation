@@ -3,7 +3,7 @@ import 'package:flutter_animation/shared/components/fade_animation.dart';
 import 'package:flutter_animation/shared/resources/app_images.dart';
 
 class FadeAnimationScreen extends StatelessWidget {
-   FadeAnimationScreen({Key key}) : super(key: key);
+   FadeAnimationScreen({Key? key}) : super(key: key);
 
   final List<String> items = [
      AppImages.ironMan,

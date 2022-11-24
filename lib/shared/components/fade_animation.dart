@@ -10,8 +10,8 @@ class FadeAnimation extends StatelessWidget {
 
   const FadeAnimation(
     this.delay, {
-    Key key,
-    this.child,
+    Key? key,
+    required this.child,
   }) : super(key: key);
 
   @override

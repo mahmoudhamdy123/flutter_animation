@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 
 class SlideTransitionScreen extends StatefulWidget {
-  SlideTransitionScreen({Key key}) : super(key: key);
+  SlideTransitionScreen({Key? key}) : super(key: key);
 
   @override
   _SlideTransitionScreenState createState() => _SlideTransitionScreenState();
@@ -12,8 +12,8 @@ class SlideTransitionScreen extends StatefulWidget {
 class _SlideTransitionScreenState extends State<SlideTransitionScreen>
     with SingleTickerProviderStateMixin {
 
-  AnimationController _controller;
-  Animation<Offset> _offsetAnimation;
+  AnimationController? _controller;
+  Animation<Offset>? _offsetAnimation;
 
   @override
   void initState() {
@@ -27,14 +27,14 @@ class _SlideTransitionScreenState extends State<SlideTransitionScreen>
       end: const Offset(1.0, 0.0),
     ).animate(
         CurvedAnimation(
-      parent: _controller,
+      parent: _controller!,
       curve: Curves.decelerate,
     ));
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller!.dispose();
     super.dispose();
 
   }
@@ -45,7 +45,7 @@ class _SlideTransitionScreenState extends State<SlideTransitionScreen>
       appBar: AppBar(),
       body: Center(
         child: SlideTransition(
-          position: _offsetAnimation,
+          position: _offsetAnimation!,
           child: const Padding(
             padding: EdgeInsets.all(8.0),
             child: FlutterLogo(size: 150.0),

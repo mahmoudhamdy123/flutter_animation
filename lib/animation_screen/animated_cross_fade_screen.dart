@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AnimatedCrossFadeScreen extends StatefulWidget {
-  const AnimatedCrossFadeScreen({Key key}) : super(key: key);
+  const AnimatedCrossFadeScreen({Key? key}) : super(key: key);
 
   @override
   State<AnimatedCrossFadeScreen> createState() =>
