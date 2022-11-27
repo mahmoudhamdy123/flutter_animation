@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation/animation_screen/abimated_clip_path_screen.dart';
 import 'package:flutter_animation/animation_screen/animated_cross_fade_screen.dart';
 import 'package:flutter_animation/animation_screen/animated_dynamic_list_screen.dart';
-import 'package:flutter_animation/animation_screen/animated_list_screen.dart';
 import 'package:flutter_animation/animation_screen/fade_animation_screen.dart';
 import 'animation_screen/animated_builder_screen.dart';
 import 'animation_screen/animated_container.dart';
@@ -13,10 +13,11 @@ import 'animation_screen/transition_opacity_screen.dart';
 import 'shared/resources/navigation.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -183,10 +184,10 @@ class MyHomePage extends StatelessWidget {
               ),
               Card(
                 child: ListTile(
-                  title: const Text("Animated List"),
+                  title: const Text("Animated Clip Path"),
                   onTap: () {
                     Navigator.of(context)
-                        .push(createRoute(const AnimatedListScreen()));
+                        .push(createRoute(const AnimatedClipPathScreen()));
                   },
                 ),
               ),
