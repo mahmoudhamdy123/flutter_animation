@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation/shared/components/custom_app_bar.dart';
 
 class AnimatedCrossFadeScreen extends StatefulWidget {
   const AnimatedCrossFadeScreen({Key? key}) : super(key: key);
@@ -13,31 +14,31 @@ class _AnimatedCrossFadeScreenState extends State<AnimatedCrossFadeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: CustomAppBar(
+        title: 'Animated Cross Fade',
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             AnimatedCrossFade(
-                firstChild: Text("Hello, Mahmoud"),
-                secondChild: Text("Second Child"),
+                firstChild: const Text("Hello, Mahmoud"),
+                secondChild: const Text("Second Child"),
                 crossFadeState: crossFadeState,
-                duration: Duration(milliseconds: 500)),
-            SizedBox(
+                duration: const Duration(milliseconds: 500)),
+            const SizedBox(
               height: 30,
             ),
             ElevatedButton(
                 onPressed: () {
                   if (crossFadeState == CrossFadeState.showFirst) {
-                      crossFadeState = CrossFadeState.showSecond;
-                    } else {
-                      crossFadeState = CrossFadeState.showFirst;
-                    }
-                  setState(() {
-                    
-                  });
+                    crossFadeState = CrossFadeState.showSecond;
+                  } else {
+                    crossFadeState = CrossFadeState.showFirst;
+                  }
+                  setState(() {});
                 },
-                child: Text("Test"))
+                child: const Text("Test"))
           ],
         ),
       ),

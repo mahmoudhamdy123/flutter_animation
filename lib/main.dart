@@ -81,7 +81,7 @@ class MyHomePage extends StatelessWidget {
                         pageBuilder: (BuildContext context,
                             Animation<double> animation,
                             Animation<double> secondaryAnimation) {
-                          return HeroAnimationScreen();
+                          return const HeroAnimationScreen();
                         },
                         transitionsBuilder: (BuildContext context,
                             Animation<double> animation,
@@ -101,19 +101,19 @@ class MyHomePage extends StatelessWidget {
               ),
               Card(
                 child: ListTile(
-                  title: const Text("Container Animation Controiler"),
+                  title: const Text("Animations From Scratch"),
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                AnimationsFromScratchScreen()));
+                                const AnimationsFromScratchScreen()));
                   },
                 ),
               ),
               Card(
                 child: ListTile(
-                  title: const Text("Using the AnimatedBuilder Widget"),
+                  title: const Text("Animated Builder"),
                   onTap: () {
                     Navigator.push(
                         context,
@@ -124,7 +124,7 @@ class MyHomePage extends StatelessWidget {
               ),
               Card(
                 child: ListTile(
-                  title: const Text("AnimatedContainer"),
+                  title: const Text("Animated Container"),
                   onTap: () {
                     Navigator.push(
                         context,
@@ -135,7 +135,7 @@ class MyHomePage extends StatelessWidget {
               ),
               Card(
                 child: ListTile(
-                  title: const Text("Animation & Transition Opacity"),
+                  title: const Text("Transition Opacity"),
                   onTap: () {
                     Navigator.push(
                         context,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/models/color_model.dart';
+import 'package:flutter_animation/shared/components/custom_app_bar.dart';
 import 'package:flutter_animation/shared/components/grid_view_item.dart';
 
 class AnimatedClipPathScreen extends StatefulWidget {
@@ -42,16 +43,15 @@ class _AnimatedClipPathScreenState extends State<AnimatedClipPathScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Animated Clip Path'),
-        elevation: 0,
+      appBar: CustomAppBar(
+        title: 'Animated Clip Path',
       ),
       body: Column(
         children: <Widget>[
           Stack(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * .6,
+                height: MediaQuery.of(context).size.height * .55,
                 width: double.infinity,
                 color: prevColor.color,
               ),
@@ -62,7 +62,7 @@ class _AnimatedClipPathScreenState extends State<AnimatedClipPathScreen>
                       clipper: CusromPath(
                           animationController.value, currentColor.alignment),
                       child: Container(
-                        height: MediaQuery.of(context).size.height * .6,
+                        height: MediaQuery.of(context).size.height * .55,
                         width: double.infinity,
                         color: currentColor.color,
                       ),

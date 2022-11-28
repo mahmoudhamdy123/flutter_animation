@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animation/shared/components/custom_app_bar.dart';
 
 class AnimationsFromScratchScreen extends StatefulWidget {
+  const AnimationsFromScratchScreen({super.key});
+
   @override
   _AnimationsFromScratchScreenState createState() =>
       _AnimationsFromScratchScreenState();
@@ -21,11 +24,11 @@ class _AnimationsFromScratchScreenState
         AnimationController(vsync: this, duration: Duration(milliseconds: 600));
     _heightAnimation = Tween<Size>(
             begin: Size(double.infinity, 100), end: Size(double.infinity, 200))
-        .animate(CurvedAnimation(parent: _controller,curve: Curves.fastOutSlowIn));
+        .animate(
+            CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
 
-    _heightAnimation.addListener(() => setState((){}));
+    _heightAnimation.addListener(() => setState(() {}));
   }
-
 
   @override
   void dispose() {
@@ -37,13 +40,15 @@ class _AnimationsFromScratchScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: CustomAppBar(
+        title: "Animations From Scratch",
+      ),
       body: Center(
         child: GestureDetector(
           onTap: () {
-            if(select){
+            if (select) {
               _controller.forward();
-            }else{
+            } else {
               _controller.reverse();
             }
             select = !select;

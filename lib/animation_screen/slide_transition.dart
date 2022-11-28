@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:flutter_animation/shared/components/custom_app_bar.dart';
 
 class SlideTransitionScreen extends StatefulWidget {
-  SlideTransitionScreen({Key? key}) : super(key: key);
+  const SlideTransitionScreen({Key? key}) : super(key: key);
 
   @override
   _SlideTransitionScreenState createState() => _SlideTransitionScreenState();
@@ -11,7 +10,6 @@ class SlideTransitionScreen extends StatefulWidget {
 
 class _SlideTransitionScreenState extends State<SlideTransitionScreen>
     with SingleTickerProviderStateMixin {
-
   AnimationController? _controller;
   Animation<Offset>? _offsetAnimation;
 
@@ -25,8 +23,7 @@ class _SlideTransitionScreenState extends State<SlideTransitionScreen>
     _offsetAnimation = Tween<Offset>(
       begin: Offset.zero,
       end: const Offset(1.0, 0.0),
-    ).animate(
-        CurvedAnimation(
+    ).animate(CurvedAnimation(
       parent: _controller!,
       curve: Curves.decelerate,
     ));
@@ -36,13 +33,14 @@ class _SlideTransitionScreenState extends State<SlideTransitionScreen>
   void dispose() {
     _controller!.dispose();
     super.dispose();
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: CustomAppBar(
+        title: "Slide Transition",
+      ),
       body: Center(
         child: SlideTransition(
           position: _offsetAnimation!,
