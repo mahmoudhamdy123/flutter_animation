@@ -16,151 +16,126 @@ class HomeBasicScreen extends StatelessWidget {
   const HomeBasicScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: [
-          const SliverAppBar(
-            expandedHeight: 200,
-            pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text("Flutter Animation"),
-              centerTitle: true,
-              background: FlutterLogo(
-                size: 20,
+    return ListView(
+      children: <Widget>[
+        Card(
+          child: ListTile(
+            title: const Text("Set up a PageRouteBuilder"),
+            onTap: () {
+              Navigator.of(context).push(createRoute(const PageRouteBuilderScreen()));
+            },
+          ),
+        ),
+        Card(
+          child: GestureDetector(
+            child: const Hero(
+              tag: 'imageHero',
+              child: FadeInImage(
+                width: double.infinity,
+                height: 200,
+                fit: BoxFit.cover,
+                placeholder: AssetImage('assets/images/image2.png'),
+                image: NetworkImage("https://docs.flutter.dev/assets/images/flutter-logo-sharing.png"),
               ),
             ),
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate([
-              Card(
-                child: ListTile(
-                  title: const Text("Set up a PageRouteBuilder"),
-                  onTap: () {
-                    Navigator.of(context).push(createRoute(const PageRouteBuilderScreen()));
+            onTap: () {
+              Navigator.of(context).push(
+                PageRouteBuilder(
+                  transitionDuration: const Duration(milliseconds: 1000),
+                  pageBuilder:
+                      (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+                    return const HeroAnimationScreen();
                   },
-                ),
-              ),
-              Card(
-                child: GestureDetector(
-                  child: const Hero(
-                    tag: 'imageHero',
-                    child: FadeInImage(
-                      width: double.infinity,
-                      height: 200,
-                      fit: BoxFit.cover,
-                      placeholder: AssetImage('assets/images/image2.png'),
-                      image: NetworkImage(
-                          "https://docs.flutter.dev/assets/images/flutter-logo-sharing.png"),
-                    ),
-                  ),
-                  onTap: () {
-                    Navigator.of(context).push(
-                      PageRouteBuilder(
-                        transitionDuration: const Duration(milliseconds: 1000),
-                        pageBuilder: (BuildContext context, Animation<double> animation,
-                            Animation<double> secondaryAnimation) {
-                          return const HeroAnimationScreen();
-                        },
-                        transitionsBuilder: (BuildContext context, Animation<double> animation,
-                            Animation<double> secondaryAnimation, Widget child) {
-                          return Align(
-                            child: FadeTransition(
-                              opacity: animation,
-                              child: child,
-                            ),
-                          );
-                        },
+                  transitionsBuilder: (BuildContext context, Animation<double> animation,
+                      Animation<double> secondaryAnimation, Widget child) {
+                    return Align(
+                      child: FadeTransition(
+                        opacity: animation,
+                        child: child,
                       ),
                     );
                   },
                 ),
-              ),
-              Card(
-                child: ListTile(
-                  title: const Text("Animations From Scratch"),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const AnimationsFromScratchScreen()));
-                  },
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  title: const Text("Animated Builder"),
-                  onTap: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => AnimatedBuilderScreen()));
-                  },
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  title: const Text("Animated Container"),
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => AnimatedContainerScreen()));
-                  },
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  title: const Text("Transition Opacity"),
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => TransitionOpacityScreen()));
-                  },
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  title: const Text("Slide Transition"),
-                  onTap: () {
-                    Navigator.push(
-                        context, MaterialPageRoute(builder: (context) => SlideTransitionScreen()));
-                  },
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  title: const Text("Fade Animation"),
-                  onTap: () {
-                    Navigator.of(context).push(createRoute(FadeAnimationScreen()));
-                  },
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  title: const Text("Animated Cross Fade"),
-                  onTap: () {
-                    Navigator.of(context).push(createRoute(const AnimatedCrossFadeScreen()));
-                  },
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  title: const Text("Animated Dynamic List"),
-                  onTap: () {
-                    Navigator.of(context).push(createRoute(const AnimatedDynamicListScreen()));
-                  },
-                ),
-              ),
-              Card(
-                child: ListTile(
-                  title: const Text("Animated Clip Path"),
-                  onTap: () {
-                    Navigator.of(context).push(createRoute(const AnimatedClipPathScreen()));
-                  },
-                ),
-              ),
-              const SizedBox(
-                height: 200,
-              )
-            ]),
-          )
-        ],
-      ),
+              );
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: const Text("Animations From Scratch"),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => const AnimationsFromScratchScreen()));
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: const Text("Animated Builder"),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => AnimatedBuilderScreen()));
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: const Text("Animated Container"),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => AnimatedContainerScreen()));
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: const Text("Transition Opacity"),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => TransitionOpacityScreen()));
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: const Text("Slide Transition"),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SlideTransitionScreen()));
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: const Text("Fade Animation"),
+            onTap: () {
+              Navigator.of(context).push(createRoute(FadeAnimationScreen()));
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: const Text("Animated Cross Fade"),
+            onTap: () {
+              Navigator.of(context).push(createRoute(const AnimatedCrossFadeScreen()));
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: const Text("Animated Dynamic List"),
+            onTap: () {
+              Navigator.of(context).push(createRoute(const AnimatedDynamicListScreen()));
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: const Text("Animated Clip Path"),
+            onTap: () {
+              Navigator.of(context).push(createRoute(const AnimatedClipPathScreen()));
+            },
+          ),
+        ),
+        const SizedBox(
+          height: 200,
+        )
+      ],
     );
   }
 }
