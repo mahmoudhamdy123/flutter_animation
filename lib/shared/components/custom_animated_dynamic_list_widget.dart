@@ -5,12 +5,10 @@ class CustomAnimatedDynamicLisWidget extends StatefulWidget {
   const CustomAnimatedDynamicLisWidget({Key? key}) : super(key: key);
 
   @override
-  State<CustomAnimatedDynamicLisWidget> createState() =>
-      _CustomAnimatedDynamicLisWidgetState();
+  State<CustomAnimatedDynamicLisWidget> createState() => _CustomAnimatedDynamicLisWidgetState();
 }
 
-class _CustomAnimatedDynamicLisWidgetState
-    extends State<CustomAnimatedDynamicLisWidget> {
+class _CustomAnimatedDynamicLisWidgetState extends State<CustomAnimatedDynamicLisWidget> {
   final GlobalKey<AnimatedListState> key = GlobalKey();
   final ScrollController scrollController = ScrollController();
   List<String> items = <String>[];
@@ -26,8 +24,8 @@ class _CustomAnimatedDynamicLisWidgetState
             initialItemCount: items.length,
             itemBuilder: (context, index, animation) {
               return SlideTransition(
-                  position: animation.drive(Tween(
-                      begin: const Offset(1, 0), end: const Offset(0, 0))),
+                  position:
+                      animation.drive(Tween(begin: const Offset(1, 0), end: const Offset(0, 0))),
                   child: ItemWidget(
                     title: items[index],
                     onPressed: () {

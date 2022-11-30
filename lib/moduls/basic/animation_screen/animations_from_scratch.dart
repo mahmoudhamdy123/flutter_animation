@@ -5,12 +5,10 @@ class AnimationsFromScratchScreen extends StatefulWidget {
   const AnimationsFromScratchScreen({super.key});
 
   @override
-  _AnimationsFromScratchScreenState createState() =>
-      _AnimationsFromScratchScreenState();
+  _AnimationsFromScratchScreenState createState() => _AnimationsFromScratchScreenState();
 }
 
-class _AnimationsFromScratchScreenState
-    extends State<AnimationsFromScratchScreen>
+class _AnimationsFromScratchScreenState extends State<AnimationsFromScratchScreen>
     with SingleTickerProviderStateMixin {
   bool select = true;
   late AnimationController _controller;
@@ -20,12 +18,10 @@ class _AnimationsFromScratchScreenState
   void initState() {
     // TODO: implement initState
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 600));
-    _heightAnimation = Tween<Size>(
-            begin: Size(double.infinity, 100), end: Size(double.infinity, 200))
-        .animate(
-            CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 600));
+    _heightAnimation =
+        Tween<Size>(begin: Size(double.infinity, 100), end: Size(double.infinity, 200))
+            .animate(CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
 
     _heightAnimation.addListener(() => setState(() {}));
   }

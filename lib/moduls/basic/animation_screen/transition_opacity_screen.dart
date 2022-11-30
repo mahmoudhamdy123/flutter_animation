@@ -5,8 +5,7 @@ class TransitionOpacityScreen extends StatefulWidget {
   const TransitionOpacityScreen({super.key});
 
   @override
-  _TransitionOpacityScreenState createState() =>
-      _TransitionOpacityScreenState();
+  _TransitionOpacityScreenState createState() => _TransitionOpacityScreenState();
 }
 
 class _TransitionOpacityScreenState extends State<TransitionOpacityScreen>
@@ -17,8 +16,7 @@ class _TransitionOpacityScreenState extends State<TransitionOpacityScreen>
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 1000))
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 1000))
       ..repeat(reverse: true);
     _opacityAnimation = CurvedAnimation(
       parent: _controller!,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation/models/color_model.dart';
+import 'package:flutter_animation/moduls/basic/models/color_model.dart';
 import 'package:flutter_animation/shared/components/custom_app_bar.dart';
 import 'package:flutter_animation/shared/components/grid_view_item.dart';
 
@@ -30,8 +30,8 @@ class _AnimatedClipPathScreenState extends State<AnimatedClipPathScreen>
     super.initState();
     currentColor = colors.first;
     prevColor = colors.last;
-    animationController = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 400));
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(milliseconds: 400));
   }
 
   @override
@@ -59,8 +59,7 @@ class _AnimatedClipPathScreenState extends State<AnimatedClipPathScreen>
                   animation: animationController,
                   builder: (context, _) {
                     return ClipPath(
-                      clipper: CusromPath(
-                          animationController.value, currentColor.alignment),
+                      clipper: CusromPath(animationController.value, currentColor.alignment),
                       child: Container(
                         height: MediaQuery.of(context).size.height * .55,
                         width: double.infinity,
@@ -76,9 +75,7 @@ class _AnimatedClipPathScreenState extends State<AnimatedClipPathScreen>
               child: GridView.builder(
                   itemCount: colors.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4,
-                      crossAxisSpacing: 12,
-                      mainAxisSpacing: 12),
+                      crossAxisCount: 4, crossAxisSpacing: 12, mainAxisSpacing: 12),
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
                       onTap: () {
@@ -164,9 +161,7 @@ class CusromPath extends CustomClipper<Path> {
 
   void buildPath(Path path, Size size, Offset offset) {
     path.addOval(Rect.fromCenter(
-        center: offset,
-        width: size.width * 2 * value,
-        height: size.height * 2 * value));
+        center: offset, width: size.width * 2 * value, height: size.height * 2 * value));
   }
 
   @override

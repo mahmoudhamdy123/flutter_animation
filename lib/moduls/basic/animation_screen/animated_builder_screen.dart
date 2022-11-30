@@ -16,12 +16,10 @@ class _AnimatedBuilderScreenState extends State<AnimatedBuilderScreen>
   void initState() {
     // TODO: implement initState
     super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 600));
-    _heightAnimation = Tween<Size>(
-            begin: Size(double.infinity, 100), end: Size(double.infinity, 200))
-        .animate(
-            CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
+    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 600));
+    _heightAnimation =
+        Tween<Size>(begin: Size(double.infinity, 100), end: Size(double.infinity, 200))
+            .animate(CurvedAnimation(parent: _controller, curve: Curves.fastOutSlowIn));
   }
 
   @override

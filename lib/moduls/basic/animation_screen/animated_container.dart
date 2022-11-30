@@ -3,8 +3,7 @@ import 'package:flutter_animation/shared/components/custom_app_bar.dart';
 
 class AnimatedContainerScreen extends StatefulWidget {
   @override
-  _AnimatedContainerScreenState createState() =>
-      _AnimatedContainerScreenState();
+  _AnimatedContainerScreenState createState() => _AnimatedContainerScreenState();
 }
 
 class _AnimatedContainerScreenState extends State<AnimatedContainerScreen> {
