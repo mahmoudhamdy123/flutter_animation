@@ -10,6 +10,7 @@ import 'package:flutter_animation/moduls/basic/animation_screen/flutter_hero_ani
 import 'package:flutter_animation/moduls/basic/animation_screen/pageRouteBuilder_screen.dart';
 import 'package:flutter_animation/moduls/basic/animation_screen/slide_transition.dart';
 import 'package:flutter_animation/moduls/basic/animation_screen/transition_opacity_screen.dart';
+import 'package:flutter_animation/moduls/basic/animation_screen/transittion_animation.dart';
 import 'package:flutter_animation/shared/resources/navigation.dart';
 
 class HomeBasicScreen extends StatelessWidget {
@@ -28,34 +29,13 @@ class HomeBasicScreen extends StatelessWidget {
         ),
         Card(
           child: GestureDetector(
-            child: const Hero(
+            child: Hero(
               tag: 'imageHero',
-              child: FadeInImage(
-                width: double.infinity,
-                height: 200,
-                fit: BoxFit.cover,
-                placeholder: AssetImage('assets/images/image2.png'),
-                image: NetworkImage("https://docs.flutter.dev/assets/images/flutter-logo-sharing.png"),
-              ),
+              child: Image.asset('assets/images/image2.png'),
             ),
             onTap: () {
               Navigator.of(context).push(
-                PageRouteBuilder(
-                  transitionDuration: const Duration(milliseconds: 1000),
-                  pageBuilder:
-                      (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
-                    return const HeroAnimationScreen();
-                  },
-                  transitionsBuilder: (BuildContext context, Animation<double> animation,
-                      Animation<double> secondaryAnimation, Widget child) {
-                    return Align(
-                      child: FadeTransition(
-                        opacity: animation,
-                        child: child,
-                      ),
-                    );
-                  },
-                ),
+                createRoute(const HeroAnimationScreen()),
               );
             },
           ),
@@ -64,7 +44,8 @@ class HomeBasicScreen extends StatelessWidget {
           child: ListTile(
             title: const Text("Animations From Scratch"),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const AnimationsFromScratchScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const AnimationsFromScratchScreen()));
             },
           ),
         ),
@@ -72,7 +53,8 @@ class HomeBasicScreen extends StatelessWidget {
           child: ListTile(
             title: const Text("Animated Builder"),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => AnimatedBuilderScreen()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => AnimatedBuilderScreen()));
             },
           ),
         ),
@@ -80,7 +62,8 @@ class HomeBasicScreen extends StatelessWidget {
           child: ListTile(
             title: const Text("Animated Container"),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => AnimatedContainerScreen()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => AnimatedContainerScreen()));
             },
           ),
         ),
@@ -88,7 +71,8 @@ class HomeBasicScreen extends StatelessWidget {
           child: ListTile(
             title: const Text("Transition Opacity"),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => TransitionOpacityScreen()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => TransitionOpacityScreen()));
             },
           ),
         ),
@@ -96,7 +80,8 @@ class HomeBasicScreen extends StatelessWidget {
           child: ListTile(
             title: const Text("Slide Transition"),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => SlideTransitionScreen()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => SlideTransitionScreen()));
             },
           ),
         ),
@@ -129,6 +114,14 @@ class HomeBasicScreen extends StatelessWidget {
             title: const Text("Animated Clip Path"),
             onTap: () {
               Navigator.of(context).push(createRoute(const AnimatedClipPathScreen()));
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: const Text("Transition Animation"),
+            onTap: () {
+              Navigator.of(context).push(createRoute(const TransitionAnimationScreen()));
             },
           ),
         ),

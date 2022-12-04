@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation/shared/components/custom_app_bar.dart';
-import 'package:flutter_animation/shared/components/fade_animation.dart';
+import 'package:flutter_animation/shared/components/appBar/custom_app_bar.dart';
+import 'package:flutter_animation/shared/components/animation/fade_animation.dart';
 import 'package:flutter_animation/shared/resources/app_images.dart';
 
 class FadeAnimationScreen extends StatelessWidget {

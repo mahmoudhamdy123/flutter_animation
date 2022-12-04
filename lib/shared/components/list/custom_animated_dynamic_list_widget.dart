@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation/shared/components/item_widget.dart';
+import 'package:flutter_animation/shared/components/items/item_widget.dart';
 
 class CustomAnimatedDynamicLisWidget extends StatefulWidget {
   const CustomAnimatedDynamicLisWidget({Key? key}) : super(key: key);

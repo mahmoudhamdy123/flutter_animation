@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animation/shared/components/custom_app_bar.dart';
+import 'package:flutter_animation/shared/components/appBar/custom_app_bar.dart';
 
 class HeroAnimationScreen extends StatelessWidget {
   const HeroAnimationScreen({super.key});

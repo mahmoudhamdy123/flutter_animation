@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/moduls/basic/models/color_model.dart';
-import 'package:flutter_animation/shared/components/custom_app_bar.dart';
-import 'package:flutter_animation/shared/components/grid_view_item.dart';
+import 'package:flutter_animation/shared/components/appBar/custom_app_bar.dart';
+import 'package:flutter_animation/shared/components/list/grid_view_item.dart';
 
 class AnimatedClipPathScreen extends StatefulWidget {
   const AnimatedClipPathScreen({Key? key}) : super(key: key);
