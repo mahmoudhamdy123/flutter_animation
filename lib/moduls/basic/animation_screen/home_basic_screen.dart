@@ -9,8 +9,9 @@ import 'package:flutter_animation/moduls/basic/animation_screen/fade_animation_s
 import 'package:flutter_animation/moduls/basic/animation_screen/flutter_hero_animation.dart';
 import 'package:flutter_animation/moduls/basic/animation_screen/pageRouteBuilder_screen.dart';
 import 'package:flutter_animation/moduls/basic/animation_screen/slide_transition.dart';
+import 'package:flutter_animation/moduls/basic/animation_screen/animated_positioned_screen.dart';
 import 'package:flutter_animation/moduls/basic/animation_screen/transition_opacity_screen.dart';
-import 'package:flutter_animation/moduls/basic/animation_screen/transittion_animation.dart';
+import 'package:flutter_animation/moduls/basic/animation_screen/transition_animation.dart';
 import 'package:flutter_animation/shared/resources/navigation.dart';
 
 class HomeBasicScreen extends StatelessWidget {
@@ -122,6 +123,14 @@ class HomeBasicScreen extends StatelessWidget {
             title: const Text("Transition Animation"),
             onTap: () {
               Navigator.of(context).push(createRoute(const TransitionAnimationScreen()));
+            },
+          ),
+        ),
+        Card(
+          child: ListTile(
+            title: const Text("Animated Positioned"),
+            onTap: () {
+              Navigator.of(context).push(createRoute(const AnimatedPositionedScreen()));
             },
           ),
         ),
